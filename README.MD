@@ -15,4 +15,28 @@ All videos are hosted on google platform.
 - [Demo AAAI 2026](https://drive.google.com/drive/folders/1XVmy2st5FB3VIO_Rh1TlWaMjpohc2D2y?usp=sharing)
 
 
-#
+# Waymo
+
+## Prepare dataset
+
+We using  [Pointcept](https://github.com/Pointcept/Pointcept) as main framework for training model 
+
+1. Download Pointcept and setup requirements
+2. Prepare dataset Waymo (we use v1.4.2)
+
+```
+python pointcept/datasets/preprocessing/waymo/preprocess_waymo.py --dataset_root your_path --output_root your_path--splits training validation --num_workers N
+```
+
+3. Patch dataset Waymo
+
+```
+python patch_scene_pointcept.py --dataset pointcept --dataroot your_path --num_workers N
+```
+
+![Waymo structure](./images/structure_waymo.png)
+
+
+## Acknowledgements
+
+- [`Pointcept`](https://github.com/open-mmlab/OpenPCDet) is used for training supervised models.
