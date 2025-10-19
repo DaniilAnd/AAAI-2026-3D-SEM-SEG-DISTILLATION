@@ -14,6 +14,37 @@ All videos are hosted on google platform.
 
 - [Demo AAAI 2026](https://drive.google.com/drive/folders/1XVmy2st5FB3VIO_Rh1TlWaMjpohc2D2y?usp=sharing)
 
+Experiments
+
+Base
+| Model  | Clip |  Patched all | mIoU | allAcc
+|-------|-----|-------| ------- | ------- |
+| PTv3 | yes  | -- | 69.6  | 94.1 |
+| PTv3   | yes  | --   | 67.9 | 93.8 |
+
+
+Teacher
+| Model  | Clip |  Patched all | mIoU | allAcc
+|-------|-----|-------| ------- | ------- |
+| PTv3 | yes  | yes | 71.3  | 92.8|
+| PTv3   | yes  | no   | 73.0 | 97.0 |
+| PTv3   | no  | no   | 75.3 | 97.8 |
+| SpUNet | yes  | yes | 73.2  | 93.4|
+| SpUNet   | yes  | no   | 77.3 | 97.1 |
+| SpUNet   | no  | no   | 78.7 | 97.9 |
+
+
+Distillation
+| Model  | Strategies |  mIoU | allAcc | mAcc
+|-------|-----|-------| ------- | ------- |
+| PTv3 | Backbone  | 68.2 | 93.9 | 79.0 |
+| PTv3   | KNN + pair  | 68.3 | 93.9 | 77.4 |
+| PTv3   | Channel-Wise  | 70.1 | 94.5 | 80.0 |
+| SpUNet | Backbone  | 68.9  |94.1  |79.5 |
+| SpUNet   | KNN + pair  | 69.6 | 94.2 | 80.1 |
+| SpUNet   | Channel-Wise  | 70.9 | 94.9 | 80.8 |
+
+
 
 # Waymo
 
@@ -38,6 +69,28 @@ python patch_scene_pointcept.py --dataset pointcept --dataroot your_path --num_w
 
 
 ## Base training
+
+Quick start
+
+[Training-Pointcept](https://github.com/Pointcept/Pointcept?tab=readme-ov-file#training)
+
+Configs for base training:
+
+- Pointcept/configs/scannet_base
+- Pointcept/configs/waymo_base
+
+Configs for teacher training:
+
+- Pointcept/configs/scannet_teacher
+- Pointcept/configs/waymo_teacher
+
+
+Configs for distillation training:
+
+- Pointcept/configs/scannet_distill
+- Pointcept/configs/waymo_distill
+
+
 
 
 
