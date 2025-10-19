@@ -37,6 +37,11 @@ python patch_scene_pointcept.py --dataset pointcept --dataroot your_path --num_w
 ![Waymo structure](./images/structure_waymo.png)
 
 
-## Acknowledgements
+## Base training
+
+
+
+
+# Acknowledgements
 
 - [`Pointcept`](https://github.com/open-mmlab/OpenPCDet) is used for training supervised models.
